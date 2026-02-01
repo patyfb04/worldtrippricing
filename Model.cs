@@ -1,0 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+public class TripContext : DbContext
+{
+    public TripContext(DbContextOptions<TripContext> options) : base(options) { }
+
+    public DbSet<TripPricing> TripPricing { get; set; } = null!;
+}
+    
+
+public class TripPricing  {
+    [Key]
+    public int TripId  {get; set;}
+    public decimal Price {get; set;}
+}
