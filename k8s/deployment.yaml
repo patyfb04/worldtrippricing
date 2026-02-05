@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worldtrippricing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worldtrippricing
+  template:
+    metadata:
+      labels:
+        app: worldtrippricing
+    spec:
+      containers:
+        - name: worldtrippricing
+          image: worldtripapp.azurecr.io/worldtrippricing:IMAGE_TAG_PLACEHOLDER
+          ports:
+            - containerPort: 80
